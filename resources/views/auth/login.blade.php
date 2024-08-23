@@ -43,7 +43,7 @@
                 {{ __('Log in') }}
             </x-primary-button>
 
-                <a href="{{route('google.auth')}}">Login Google</a>
+                {{--<a href="{{route('google.auth')}}">Login Google</a>--}}
         </div>
     </form>
 </x-guest-layout>
