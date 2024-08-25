@@ -203,9 +203,11 @@ class InvoiceController extends Controller
 
     public function preview_pdf(Invoice $invoice)
     {
-
         $pdf = $this->create_pdf($invoice);
-        $pdf->Output();
+        return response($pdf->Output('S', 'document.pdf'), 200)
+            ->header('Content-Type', 'application/pdf')
+            ->header('Content-Disposition', 'inline; filename="document.pdf"')
+            ->header('Accept-Ranges', 'bytes');
     }
 
     public function update_status(Request $request){
