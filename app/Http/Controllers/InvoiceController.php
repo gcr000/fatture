@@ -242,7 +242,7 @@ class InvoiceController extends Controller
         \Mail::send('emails.invoice', $data, function($message) use ($to_name, $to_email, $invoice) {
             $message->to($to_email, $to_name)
                     ->subject('Fattura n. ' . $invoice->customer_invoice_annual_number . '/' . date('Y'));
-            $message->from('no-reply@gmail.com','Fatture');
+            $message->from('noreplyfatture@bookingexpress.it','Fatture');
             $message->attach(public_path('pdf/invoice_' . $invoice->id . '.pdf'));
         });
 
